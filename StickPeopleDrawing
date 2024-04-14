@@ -1,0 +1,72 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class StickPeopleDrawing extends JPanel {
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        
+        // Set the background color
+        setBackground(Color.WHITE);
+        
+        // Define coordinates for the first stick figure (Bongani)
+        int bonganiX = 100;
+        int bonganiY = 100;
+        
+        // Draw Bongani's head
+        g.drawOval(bonganiX - 15, bonganiY - 30, 30, 30);
+        
+        // Draw Bongani's body
+        g.drawLine(bonganiX, bonganiY, bonganiX, bonganiY + 100);
+        
+        // Draw Bongani's arms
+        g.drawLine(bonganiX, bonganiY, bonganiX - 40, bonganiY + 50);
+        g.drawLine(bonganiX, bonganiY, bonganiX + 40, bonganiY + 50);
+        
+        // Draw Bongani's legs
+        g.drawLine(bonganiX, bonganiY + 100, bonganiX - 20, bonganiY + 150);
+        g.drawLine(bonganiX, bonganiY + 100, bonganiX + 20, bonganiY + 150);
+        
+        // Draw Bongani's name
+        g.drawString("Bongani", bonganiX - 15, bonganiY - 40);
+        
+        // Define coordinates for the second stick figure (Felo)
+        int feloX = 250;
+        int feloY = 100;
+        
+        // Draw Felo's head
+        g.drawOval(feloX - 15, feloY - 30, 30, 30);
+        
+        // Draw Felo's body
+        g.drawLine(feloX, feloY, feloX, feloY + 100);
+        
+        // Draw Felo's arms
+        g.drawLine(feloX, feloY, feloX - 40, feloY + 50);
+        g.drawLine(feloX, feloY, feloX + 40, feloY + 50);
+        
+        // Draw Felo's legs
+        g.drawLine(feloX, feloY + 100, feloX - 20, feloY + 150);
+        g.drawLine(feloX, feloY + 100, feloX + 20, feloY + 150);
+        
+        // Draw Felo's name
+        g.drawString("Felo", feloX - 15, feloY - 40);
+        
+        // Draw the line connecting the two stick figures' hands
+        g.drawLine(bonganiX + 40, bonganiY + 50, feloX - 40, feloY + 50);
+    }
+    
+    public static void main(String[] args) {
+        // Create a JFrame
+        JFrame frame = new JFrame("Stick People Drawing");
+        
+        // Create an instance of StickPeopleDrawing and add it to the frame
+        StickPeopleDrawing stickPeopleDrawing = new StickPeopleDrawing();
+        frame.add(stickPeopleDrawing);
+        
+        // Set the frame size, close operation, and visibility
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
