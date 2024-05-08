@@ -1,0 +1,44 @@
+package qq;
+
+import java.util.Scanner;
+
+public class Qman {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Welcome to Ntando's Quiz App!");
+        System.out.println("Answer the following questions:");
+        
+        // Questions
+        String[] questions = {
+            "What is the capital of France?\n(a) London\n(b) Paris\n(c) Rome\n",
+            "What is 2 + 2?\n(a) 3\n(b) 4\n(c) 5\n",
+            "Which planet is known as the Red Planet?\n(a) Venus\n(b) Mars\n(c) Jupiter\n"
+        };
+        
+        // Correct answers
+        char[] answers = {'b', 'b', 'b'};
+        
+        // User's answers
+        char[] userAnswers = new char[questions.length];
+        
+        // Ask questions and get user's answers
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+            System.out.print("Your answer: ");
+            userAnswers[i] = scanner.nextLine().toLowerCase().charAt(0);
+        }
+        
+        // Check answers
+        int score = 0;
+        for (int i = 0; i < questions.length; i++) {
+            if (userAnswers[i] == answers[i]) {
+                score++;
+            }
+        }
+        
+        // Display result
+        System.out.println("\nYou got " + score + "/" + questions.length + " correct.");
+       }
+}
